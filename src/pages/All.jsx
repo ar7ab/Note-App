@@ -2,7 +2,7 @@ import Navbar from "../components/Home/Navbar";
 import { Notes } from "../assets/data/data";
 import Note from "../components/Note";
 
-const Home = () => {
+const All = () => {
   return (
     <div className="px-24 pt-8 text-black">
       {/* Title */}
@@ -33,4 +33,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default All;
