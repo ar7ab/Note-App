@@ -2,22 +2,35 @@ import { FaPen } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 
 const Note = ({ note }) => {
+  const categoryColors = {
+    personal: "bg-[#FFCB7E]",
+    business: "bg-[#A4D6A6]",
+    home: "bg-[#b39ddc]",
+    default: "bg-gray-300",
+  };
+
+  const getCategoryColor = (category) =>
+    categoryColors[category] || categoryColors.default;
+
   return (
-    <div
-      key={note.id}
-      className="bg-white p-5 rounded-md shadow-lg h-56 relative"
-    >
+    <div className="bg-white p-5 rounded-md shadow-lg min-h-52 relative">
       <div className="flex justify-between">
-        <span className="px-3 py-1.5 bg-red-300 rounded-full flex justify-center items-center">
-          {note.category}
+        <span
+          className={`px-5 pt-0.5 pb-1.5 rounded-full flex justify-center items-center ${getCategoryColor(
+            note.category
+          )}`}
+        >
+          {note.category || "Uncategorized"}
         </span>
-        <div className="flex justify-between gap-5 items-center">
+        <div className="flex gap-5 items-center">
           <input
             type="checkbox"
+            checked={note.isCompleted}
             className="appearance-none bg-transparent border border-gray-300 rounded-sm w-4 h-4 checked:bg-blue-500"
+            aria-label="Mark as completed"
           />
-          <FaPen />
-          <FaTrashAlt />
+          <FaPen className="cursor-pointer" title="Edit note" />
+          <FaTrashAlt className="cursor-pointer" title="Delete note" />
         </div>
       </div>
       <h1 className="text-xl font-bold my-3">{note.title}</h1>

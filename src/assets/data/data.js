@@ -4,8 +4,8 @@ export const Notes = [
         title: "Grocery Shopping",
         text: "Buy vegetables, fruits, and snacks for the week.",
         category: "home",
-        isCompleted: false,
-        date: "10-11-2024",  // Date format: DD-MM-YYYY
+        isCompleted: true,
+        date: "10-11-2024",  
     },
     {
         id: 2,
@@ -36,7 +36,7 @@ export const Notes = [
         title: "Team Lunch",
         text: "Join the team for lunch at 1 PM at the new cafe.",
         category: "business",
-        isCompleted: false,
+        isCompleted: true,
         date: "11-12-2024",
     },
     {
@@ -44,7 +44,7 @@ export const Notes = [
         title: "Plan Birthday Party",
         text: "Organize decorations and invite friends for the party.",
         category: "personal",
-        isCompleted: true,
+        isCompleted: false,
         date: "10-11-2024",
     },
     {
@@ -52,7 +52,7 @@ export const Notes = [
         title: "Doctor's Appointment",
         text: "Visit the clinic for a check-up at 11 AM.",
         category: "personal",
-        isCompleted: false,
+        isCompleted: true,
         date: "13-12-2024",
     },
     {
@@ -60,7 +60,7 @@ export const Notes = [
         title: "Complete Project Report",
         text: "Submit the final report for the quarterly review.",
         category: "business",
-        isCompleted: false,
+        isCompleted: true,
         date: "14-12-2024",
     },
     {
@@ -76,7 +76,7 @@ export const Notes = [
         title: "Read a Book",
         text: "Finish reading 'Atomic Habits' before the weekend.",
         category: "personal",
-        isCompleted: true,
+        isCompleted: false,
         date: "10-11-2024",
     },
 ];

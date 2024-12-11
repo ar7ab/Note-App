@@ -4,9 +4,9 @@ const Navbar = () => {
   return (
     <nav className="border-b-2 border-gray-300 flex justify-between gap-5 pb-2">
       <NavLink
-        to="/all"
+        to="/"
         className={({ isActive }) =>
-          `px-3 text-center relative border-b-2 ${
+          `px-1 sm:px-3 text-center relative border-b-2 ${
             isActive
               ? "border-blue-500 -mb-2.5 text-blue-500"
               : "border-transparent"
@@ -19,7 +19,7 @@ const Navbar = () => {
       <NavLink
         to="/personal"
         className={({ isActive }) =>
-          `px-3 text-center relative border-b-2 ${
+          `px-1 sm:px-3 text-center relative border-b-2 ${
             isActive
               ? "border-blue-500 -mb-2.5 text-blue-500"
               : "border-transparent"
@@ -30,9 +30,9 @@ const Navbar = () => {
       </NavLink>
 
       <NavLink
-        to="/"
+        to="/home"
         className={({ isActive }) =>
-          `px-3 text-center relative border-b-2 ${
+          `px-1 sm:px-3 text-center relative border-b-2 ${
             isActive
               ? "border-blue-500 -mb-2.5 text-blue-500"
               : "border-transparent"
@@ -45,7 +45,7 @@ const Navbar = () => {
       <NavLink
         to="/business"
         className={({ isActive }) =>
-          `px-3 text-center relative border-b-2 ${
+          `px-1 sm:px-3 text-center relative border-b-2 ${
             isActive
               ? "border-blue-500 -mb-2.5 text-blue-500"
               : "border-transparent"
