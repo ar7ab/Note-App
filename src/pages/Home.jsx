@@ -1,21 +1,24 @@
 import Navbar from "../components/Home/Navbar";
-import { Notes } from "../assets/data/data";
 import Note from "../components/Note";
 import { useState } from "react";
+import { useNotes } from "../context/notesContext";
 
 const Home = () => {
   const [showOnlyCompleted, setShowOnlyCompleted] = useState(false);
 
-  const HomeNotes = Notes.filter((note) => note.category === "home");
+  const { notes } = useNotes();
+
+  const HomeNotes = notes.filter((note) => note.category === "home");
 
   const filteredNotes = showOnlyCompleted
-    ? HomeNotes.filter((note) => note.isCompleted)
+    ? HomeNotes.filter((note) => note.noteIsCompleted)
     : HomeNotes;
+
   return (
     <div className="px-2.5 sm:px-24 pt-4 sm:pt-8 text-black pb-5">
       {/* Title */}
       <h2 className="text-2xl font-semibold w-full text-center sm:text-left">
-        Your Notes
+        Your Home Notes
       </h2>
       {/* Navbar Section*/}
       <div className="flex justify-between flex-col sm:flex-row items-center mt-3 sm:mt-5">
@@ -36,10 +39,16 @@ const Home = () => {
         </div>
       </div>
       {/* Notes Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-8">
-        {filteredNotes.slice(0, 10).map((note) => (
-          <Note key={note.id} note={note} />
-        ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
+        {filteredNotes.length === 0 ? (
+          <p className="text-center text-lg text-gray-500 col-span-full">
+            No home notes to display
+          </p>
+        ) : (
+          filteredNotes
+            .slice(0, 10)
+            .map((note) => <Note key={note.id} note={note} />)
+        )}
       </div>
     </div>
   );

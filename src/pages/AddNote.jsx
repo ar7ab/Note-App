@@ -4,7 +4,7 @@ import Note from "../components/Note";
 
 const AddNote = () => {
   return (
-    <div className="px-3 sm:px-24 pt-6 sm:pt-12 text-black block sm:flex sm:flex-row sm:gap-16">
+    <div className="px-3 sm:px-24 pt-10 sm:pt-12 text-black block sm:flex sm:flex-row sm:gap-16">
       {/* Left Column - Form */}
       <div className=" sm:flex-1">
         {/* Title */}

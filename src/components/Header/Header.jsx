@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Logo from "./Logo"; // Ensure you have a Logo component
+import Logo from "./Logo";
 import SearchBox from "./SearchBox";
 import { IoAddSharp } from "react-icons/io5";
 

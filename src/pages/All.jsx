@@ -1,14 +1,18 @@
 import Navbar from "../components/Home/Navbar";
-import { Notes } from "../assets/data/data";
 import Note from "../components/Note";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNotes } from "../context/notesContext";
 
 const All = () => {
   const [showOnlyCompleted, setShowOnlyCompleted] = useState(false);
 
+  const { notes } = useNotes();
+
+  useEffect(() => console.log(notes), [notes]);
+
   const filteredNotes = showOnlyCompleted
-    ? Notes.filter((note) => note.isCompleted)
-    : Notes;
+    ? notes.filter((note) => note.noteIsCompleted)
+    : notes;
   return (
     <div className="px-2.5 sm:px-24 pt-4 sm:pt-8 text-black pb-5">
       {/* Title */}
@@ -34,10 +38,16 @@ const All = () => {
         </div>
       </div>
       {/* Notes Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-8">
-        {filteredNotes.slice(0, 10).map((note) => (
-          <Note key={note.id} note={note} />
-        ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
+        {filteredNotes.length === 0 ? (
+          <p className="text-center text-lg text-gray-500 col-span-full">
+            No notes to display
+          </p>
+        ) : (
+          filteredNotes
+            .slice(0, 10)
+            .map((note) => <Note key={note.id} note={note} />)
+        )}
       </div>
     </div>
   );
