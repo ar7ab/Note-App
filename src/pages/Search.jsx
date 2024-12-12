@@ -3,22 +3,20 @@ import Note from "../components/Note";
 import { useState } from "react";
 import { useNotes } from "../context/NotesContext";
 
-const Business = () => {
+const Search = () => {
   const [showOnlyCompleted, setShowOnlyCompleted] = useState(false);
 
-  const { notes } = useNotes();
+  const { searchTerm, filteredNotes } = useNotes();
 
-  const BusinessNotes = notes.filter((note) => note.category === "business");
-
-  const filteredNotes = showOnlyCompleted
-    ? BusinessNotes.filter((note) => note.noteIsCompleted)
-    : BusinessNotes;
+  const ShowNotes = showOnlyCompleted
+    ? filteredNotes.filter((note) => note.noteIsCompleted)
+    : filteredNotes;
 
   return (
     <div className="px-2.5 sm:px-24 pt-4 sm:pt-8 text-black pb-5">
       {/* Title */}
       <h2 className="text-2xl font-semibold sm:font-bold  w-full text-center sm:text-left">
-        Your Business Notes
+        Search term: {`${searchTerm}`}
       </h2>
       {/* Navbar Section*/}
       <div className="flex justify-between flex-col sm:flex-row items-center mt-3 sm:mt-5">
@@ -42,16 +40,16 @@ const Business = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
         {filteredNotes.length === 0 ? (
           <p className="text-center text-lg text-gray-500 col-span-full">
-            No business notes to display
+            Searched Term Not Found!!
           </p>
         ) : (
-          filteredNotes
-            .slice(0, 10)
-            .map((note) => <Note key={note.id} note={note} />)
+          ShowNotes.slice(0, 10).map((note) => (
+            <Note key={note.id} note={note} />
+          ))
         )}
       </div>
     </div>
   );
 };
 
-export default Business;
+export default Search;

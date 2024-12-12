@@ -16,8 +16,8 @@ const All = () => {
   return (
     <div className="px-2.5 sm:px-24 pt-4 sm:pt-8 text-black pb-5">
       {/* Title */}
-      <h2 className="text-2xl font-semibold w-full text-center sm:text-left">
-        Your Notes
+      <h2 className="text-2xl font-semibold sm:font-bold w-full text-center sm:text-left">
+        Your All Notes
       </h2>
       {/* Navbar Section*/}
       <div className="flex justify-between flex-col sm:flex-row items-center mt-3 sm:mt-5">

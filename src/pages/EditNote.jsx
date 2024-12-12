@@ -17,7 +17,9 @@ const EditNote = () => {
     <div className="px-3 sm:px-24 pt-10 sm:pt-12 text-black block sm:flex sm:flex-row sm:gap-16">
       {/* Left Column - Form */}
       <div className="sm:flex-1">
-        <h2 className="text-2xl font-semibold mb-4">Edit Your Note</h2>
+        <h2 className="text-2xl font-semibold sm:font-bold  mb-4">
+          Edit Your Note
+        </h2>
         <EditForm note={noteToEdit} /> {/* Pass the note to the form */}
       </div>
 

@@ -8,7 +8,9 @@ const AddNote = () => {
       {/* Left Column - Form */}
       <div className=" sm:flex-1">
         {/* Title */}
-        <h2 className="text-2xl font-semibold mb-4">Add Your Notes</h2>
+        <h2 className="text-2xl font-semibold sm:font-bold  mb-4">
+          Add Your Notes
+        </h2>
         {/* Form Section */}
         <AddForm />
       </div>

@@ -10,6 +10,7 @@ export const NotesProvider = ({ children }) => {
   };
 
   const [notes, setNotes] = useState(loadNotesFromLocalStorage());
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     if (notes.length > 0) {
@@ -53,8 +54,23 @@ export const NotesProvider = ({ children }) => {
     });
   };
 
+  // Filter notes based on the search term
+  const filteredNotes = notes.filter((note) =>
+    note.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <NotesContext.Provider value={{ notes, addNote, updateNotes, deleteNote }}>
+    <NotesContext.Provider
+      value={{
+        notes,
+        addNote,
+        updateNotes,
+        deleteNote,
+        searchTerm,
+        setSearchTerm,
+        filteredNotes,
+      }}
+    >
       {children}
     </NotesContext.Provider>
   );
