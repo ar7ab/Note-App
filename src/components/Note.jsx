@@ -60,25 +60,25 @@ const Note = ({ note }) => {
         </div>
       </div>
       <h1
-        className={`text-xl font-bold my-3 ${
+        className={`text-lg sm:text-xl font-bold my-3 ${
           note.noteIsCompleted ? "text-gray-500" : ""
         }`}
       >
         {note.title}
       </h1>
-      <p className="trancate line-clamp-2">{note.text}</p>
+      <p className="text-sm sm:text-base truncate line-clamp-2">{note.text}</p>
       {note.noteIsCompleted ? (
-        <span className="absolute left-5 bottom-4 items-center flex gap-1 text-green-600">
-          <IoCheckmarkDoneCircleSharp className="text-3xl" />
+        <span className="absolute left-5 bottom-4 items-center flex gap-1 text-green-600 sm:text-base">
+          <IoCheckmarkDoneCircleSharp className="text-2xl sm:text-3xl" />
           <span className="font-semibold">Completed</span>
         </span>
       ) : (
-        <span className="absolute left-6 bottom-5 items-center flex gap-1 text-gray-400">
-          <FaClock className="text-2xl" />
+        <span className="absolute left-6 bottom-5 items-center flex gap-1 text-gray-400 sm:text-base">
+          <FaClock className="text-xl sm:text-2xl" />
           <span className="font-semibold">Pending</span>
         </span>
       )}
-      <span className="absolute right-4 bottom-4 text-sm text-gray-500">
+      <span className="absolute right-4 bottom-4 text-xs sm:text-sm text-gray-500">
         {note.date}
       </span>
     </div>
