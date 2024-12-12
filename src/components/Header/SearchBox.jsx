@@ -11,7 +11,7 @@ const SearchBox = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchTerm(searchText);
-    setSearchText(""); // Clear the input field
+    setSearchText("");
     navigate("/search");
   };
 
@@ -21,7 +21,7 @@ const SearchBox = () => {
         type="text"
         placeholder="Search by title"
         className="bg-[#eee] text-black w-full placeholder-black pl-8 sm:pl-12 py-1.5 sm:py-2.5 rounded-md focus:outline-none"
-        value={searchText} // Bind the input value to the state
+        value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />
       <div className="absolute left-2 sm:left-5 top-1/2 transform -translate-y-1/2 text-black">
