@@ -1,6 +1,6 @@
 import { FaPen } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
-import { useNotes } from "../context/notesContext";
+import { useNotes } from "../context/NotesContext";
 import { IoCheckmarkDoneCircleSharp } from "react-icons/io5";
 import { FaClock } from "react-icons/fa6";
 

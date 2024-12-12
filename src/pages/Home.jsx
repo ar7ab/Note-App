@@ -1,7 +1,7 @@
 import Navbar from "../components/Home/Navbar";
 import Note from "../components/Note";
 import { useState } from "react";
-import { useNotes } from "../context/notesContext";
+import { useNotes } from "../context/NotesContext";
 
 const Home = () => {
   const [showOnlyCompleted, setShowOnlyCompleted] = useState(false);

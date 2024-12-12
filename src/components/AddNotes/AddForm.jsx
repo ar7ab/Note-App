@@ -1,6 +1,6 @@
 import { IoAddSharp } from "react-icons/io5";
 import { useEffect, useState } from "react";
-import { useNotes } from "../../context/notesContext";
+import { useNotes } from "../../context/NotesContext";
 
 const AddForm = () => {
   const { notes, addNote } = useNotes();
