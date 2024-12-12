@@ -1,6 +1,7 @@
 import { IoAddSharp } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import { useNotes } from "../../context/NotesContext";
+import { useNavigate } from "react-router-dom";
 
 const AddForm = () => {
   const { notes, addNote } = useNotes();
@@ -8,6 +9,8 @@ const AddForm = () => {
   const [noteTitle, setNoteTitle] = useState("");
   const [noteText, setNoteText] = useState("");
   const [noteCategory, setNoteCategory] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,6 +26,8 @@ const AddForm = () => {
     setNoteTitle("");
     setNoteText("");
     setNoteCategory("");
+
+    navigate("/");
   };
 
   useEffect(() => console.log(notes), [notes]);
@@ -58,14 +63,14 @@ const AddForm = () => {
           onChange={(e) => setNoteText(e.target.value)}
         />
       </div>
-      {/* Category Input */}
-      <div>
-        <p className="text-xl font-semibold pl-2">Choose Category:</p>
+      {/* Category Radio Inputs */}
+      <div className="">
+        <label className="text-xl font-semibold pl-2">Category:</label>
         <div className="flex flex-col gap-1.5 pl-3 mt-2">
           {["personal", "home", "business"].map((category) => (
-            <div
-              className="flex items-center gap-1 cursor-pointer"
+            <label
               key={category}
+              className="flex items-center gap-1 cursor-pointer"
             >
               <input
                 type="radio"
@@ -76,10 +81,8 @@ const AddForm = () => {
                 checked={noteCategory === category}
                 onChange={(e) => setNoteCategory(e.target.value)}
               />
-              <label htmlFor={category}>
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-              </label>
-            </div>
+              {category}
+            </label>
           ))}
         </div>
       </div>

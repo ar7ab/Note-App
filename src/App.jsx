@@ -5,6 +5,7 @@ import All from "./pages/All";
 import Personal from "./pages/Personal";
 import Business from "./pages/Business";
 import AddNote from "./pages/AddNote";
+import EditNote from "./pages/EditNote";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/personal" element={<Personal />} />
         <Route path="/business" element={<Business />} />
         <Route path="/addnote" element={<AddNote />} />
+        <Route path="/editnote/:id" element={<EditNote />} />
       </Routes>
     </div>
   );

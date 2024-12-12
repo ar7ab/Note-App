@@ -31,13 +31,13 @@ export const NotesProvider = ({ children }) => {
     ]);
   };
 
-  const updateNotes = (id) => {
+  const updateNotes = (id, updatedNote) => {
     setNotes((prevNotes) =>
       prevNotes.map((note) =>
         note.id === id
           ? {
               ...note,
-              noteIsCompleted: !note.noteIsCompleted,
+              ...updatedNote,
               date: new Date().toLocaleDateString(),
             }
           : note

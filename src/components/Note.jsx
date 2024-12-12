@@ -1,8 +1,8 @@
-import { FaPen } from "react-icons/fa";
-import { FaTrashAlt } from "react-icons/fa";
-import { useNotes } from "../context/NotesContext";
+import { FaPen, FaTrashAlt } from "react-icons/fa";
 import { IoCheckmarkDoneCircleSharp } from "react-icons/io5";
 import { FaClock } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import { useNotes } from "../context/NotesContext";
 
 const Note = ({ note }) => {
   const { updateNotes, deleteNote } = useNotes();
@@ -18,11 +18,11 @@ const Note = ({ note }) => {
     categoryColors[category] || categoryColors.default;
 
   const handleCheckboxChange = () => {
-    updateNotes(note.id);
+    updateNotes(note.id, { noteIsCompleted: !note.noteIsCompleted });
   };
 
   const handleDeleteNote = () => {
-    deleteNote(note.id); // Call deleteNote to remove the note
+    deleteNote(note.id);
   };
 
   return (
@@ -42,17 +42,19 @@ const Note = ({ note }) => {
               type="checkbox"
               checked={note.noteIsCompleted}
               onChange={handleCheckboxChange}
-              className="appearance-none bg-transparent border-2 cursor-pointer border-gray-300 rounded-md w-4 h-4 checked:bg-green-500 checked:border-green-500 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none"
+              className="appearance-none bg-transparent border-2 cursor-pointer border-gray-300 rounded-md w-4 h-4 checked:bg-green-500 checked:border-green-500 transition duration-300 ease-in-out"
               aria-label="Mark as completed"
             />
           </label>
-          <FaPen
-            className="cursor-pointer text-blue-500 hover:text-blue-700 active:text-blue-900 transition duration-300"
-            title="Edit note"
-          />
+          <Link to={`/editnote/${note.id}`}>
+            <FaPen
+              className="cursor-pointer text-blue-500 hover:text-blue-700 active:text-blue-900"
+              title="Edit note"
+            />
+          </Link>
           <FaTrashAlt
-            onClick={handleDeleteNote} // Add the delete handler here
-            className="cursor-pointer text-red-500 hover:text-red-700 active:text-red-900 transition duration-300"
+            onClick={handleDeleteNote}
+            className="cursor-pointer text-red-500 hover:text-red-700 active:text-red-900"
             title="Delete note"
           />
         </div>
@@ -64,14 +66,16 @@ const Note = ({ note }) => {
       >
         {note.title}
       </h1>
-      <p>{note.text}</p>
+      <p className="trancate line-clamp-2">{note.text}</p>
       {note.noteIsCompleted ? (
-        <span className="absolute left-5 bottom-4 text-green-600">
+        <span className="absolute left-5 bottom-4 items-center flex gap-1 text-green-600">
           <IoCheckmarkDoneCircleSharp className="text-3xl" />
+          <span className="font-semibold">Completed</span>
         </span>
       ) : (
-        <span className="absolute left-6 bottom-5 text-gray-400">
+        <span className="absolute left-6 bottom-5 items-center flex gap-1 text-gray-400">
           <FaClock className="text-2xl" />
+          <span className="font-semibold">Pending</span>
         </span>
       )}
       <span className="absolute right-4 bottom-4 text-sm text-gray-500">
