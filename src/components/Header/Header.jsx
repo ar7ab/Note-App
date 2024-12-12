@@ -5,7 +5,7 @@ import { IoAddSharp } from "react-icons/io5";
 
 const Header = () => {
   return (
-    <div className="px-3 sm:px-24 bg-[#ffffff] w-full shadow-lg sm:py-4 py-4 flex items-center gap-1.5 sm:gap-5">
+    <div className="px-3 sm:px-24 bg-[#ffffff] w-full hidden shadow-lg sm:py-4 py-4  items-center gap-1.5 sm:gap-5">
       {/* Logo */}
       <Logo />
       {/* Search Box */}
